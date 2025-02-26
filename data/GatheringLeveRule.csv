@@ -1,8 +1,3 @@
-﻿key,0
-#,Rule
-int32,str
-0,""
-1,"GatheringLeveSearch"
-2,"GatheringLeveProcurance"
-3,"GatheringLeveSearchProcurance"
-4,"GatheringLeveExecution"
+version https://git-lfs.github.com/spec/v1
+oid sha256:ff303272692ed77100694e4cfe6b993fd7a33f5a1d20afd35081581697137cf7
+size 152

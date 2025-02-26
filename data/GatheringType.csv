@@ -1,9 +1,3 @@
-﻿key,0,1,2
-#,Name,Icon{Main},Icon{Off}
-int32,str,Image,Image
-0,"Mining","ui/icon/060000/060438.tex","ui/icon/060000/060464.tex"
-1,"Quarrying","ui/icon/060000/060437.tex","ui/icon/060000/060463.tex"
-2,"Logging","ui/icon/060000/060433.tex","ui/icon/060000/060462.tex"
-3,"Harvesting","ui/icon/060000/060432.tex","ui/icon/060000/060461.tex"
-4,"●銛","ui/icon/060000/060929.tex","ui/icon/060000/060930.tex"
-5,"●銛","ui/icon/060000/060929.tex","ui/icon/060000/060930.tex"
+version https://git-lfs.github.com/spec/v1
+oid sha256:4259f96fceeb482c968552ae03c5739cf42878d935add6de37cc071286de058c
+size 482
