@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    fetch("https://raw.githubusercontent.com/mcbain40/FFXIV-Gathering-Tracker/main/GatheringItem.csv")
+    fetch("https://raw.githubusercontent.com/mcbain40/FFXIV-Gathering-Tracker/main/data/GatheringItem.csv")
         .then(response => response.text())
         .then(data => {
             populateTable(data);
