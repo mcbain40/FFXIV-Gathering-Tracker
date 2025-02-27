@@ -1,36 +1,33 @@
 document.addEventListener("DOMContentLoaded", function () {
-    fetch("https://raw.githubusercontent.com/mcbain40/FFXIV-Gathering-Tracker/main/GatheringItem.csv")
-        .then(response => response.text())
-        .then(data => {
-            populateTable(data);
-        })
-        .catch(error => console.error("Error loading data:", error));
+    async function loadCSV() {
+        const response = await fetch("GatheringItem.csv"); // Make sure the file is in the same GitHub folder
+        if (!response.ok) {
+            console.error("Failed to load CSV");
+            return;
+        }
+        const data = await response.text();
+        populateTable(data);
+    }
 
     function populateTable(csvData) {
-        let rows = csvData.split("\n").map(row => row.split(","));
-        let tableBody = document.querySelector("#gatheringTable tbody");
+        const rows = csvData.split("\n").slice(1); // Skip header row
+        const tableBody = document.querySelector("#gatheringTable tbody");
+        tableBody.innerHTML = ""; // Clear existing rows
 
-        rows.slice(1).forEach(row => {
-            let tr = document.createElement("tr");
+        rows.forEach(row => {
+            const columns = row.split(",");
+            if (columns.length < 9) return; // Ignore incomplete rows
 
-            row.forEach(cell => {
-                let td = document.createElement("td");
-                td.textContent = cell;
+            const tr = document.createElement("tr");
+            columns.forEach(text => {
+                const td = document.createElement("td");
+                td.textContent = text;
                 tr.appendChild(td);
             });
-
             tableBody.appendChild(tr);
         });
     }
 
-    function updateEorzeaTime() {
-        let now = new Date();
-        let eorzeaTime = new Date(now.getTime() * 144 / 6);
-        let hours = eorzeaTime.getUTCHours().toString().padStart(2, '0');
-        let minutes = eorzeaTime.getUTCMinutes().toString().padStart(2, '0');
-        document.getElementById("clock").textContent = `Eorzea Time: ${hours}:${minutes}`;
-    }
-
-    setInterval(updateEorzeaTime, 1000);
-    updateEorzeaTime();
+    loadCSV();
 });
+
