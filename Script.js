@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     async function loadCSV() {
-        const response = await fetch("GatheringItem.csv"); // Make sure the file is in the same GitHub folder
+        const response = await fetch("https://raw.githubusercontent.com/mcbain40/FFXIV-Gathering-Tracker/main/GatheringItem.csv");
+ // Make sure the file is in the same GitHub folder
         if (!response.ok) {
             console.error("Failed to load CSV");
             return;
